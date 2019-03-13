@@ -1,15 +1,17 @@
-package com.example.koichung2.ViewController.Batch;
+package com.example.koichung.ViewController.Batch;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
-import com.example.koichung2.Model.Batch.Batch;
-import com.example.koichung2.Model.Batch.Result;
-import com.example.koichung2.Networks.APIServer;
-import com.example.koichung2.Networks.RetrofitClient;
-import com.example.koichung2.Until.AppConfig;
-import com.example.koichung2.Until.Until;
-import com.example.koichung2.ViewController.Base.FragmentWithListView;
+import com.example.koichung.Model.Batch;
+import com.example.koichung.Model.BatchRespone;
+import com.example.koichung.Network.APIServer;
+import com.example.koichung.Network.RetrofitClient;
+import com.example.koichung.Util.AppConfig;
+import com.example.koichung.Util.Util;
+import com.example.koichung.ViewController.Base.FragmentWithListView;
+import com.example.koichung.ViewController.Batch.Adapter.BatchAdapter;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -20,56 +22,56 @@ import retrofit2.Response;
 
 public class ListBatchFragment extends FragmentWithListView {
     public static ListBatchFragment listBatchFragment = null;
-    ArrayList<Result> batchArrayList = new ArrayList<>();
-    BatchAdapter batchAdapter;
-
-    public static ListBatchFragment newInstance(int type) {
+    BatchAdapter adapter;
+    ArrayList<Batch> arrData=new ArrayList<>();
+    int status;
+    public static ListBatchFragment newInstance(int tpye) {
         listBatchFragment = new ListBatchFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt("type", type);
+        Bundle bundle=new Bundle();
+        bundle.putInt("tpye",tpye);
         listBatchFragment.setArguments(bundle);
         return listBatchFragment;
     }
 
     @Override
-    public void getData() {
+    protected void getData() {
         super.getData();
-        Until.jsonBody();
-        Until.jsonObject.addProperty("userID", AppConfig.getUserID(getActivity()));
-        if (type == FragmentWithListView.TAB_ALL_BATCH) {
-            Until.jsonObject.addProperty("status", 0);
-        } else if (type == FragmentWithListView.TAB_HAVE_BILL) {
-            Until.jsonObject.addProperty("status", 1);
-        } else {
-            Until.jsonObject.addProperty("status", -1);
+        Util.baseJson();
+        Util.jsonObject.addProperty("userID", AppConfig.getUserID(getActivity()));
+        if (tpye==FragmentWithListView.TAB_ALL_BATCH){
+            Util.jsonObject.addProperty("status",0);
+        }else if (tpye==FragmentWithListView.TAB_HAVE_BILL){
+            Util.jsonObject.addProperty("status",1);
+        }else {
+            Util.jsonObject.addProperty("status",-1);
         }
-        getDataBatch(Until.jsonObject);
+        getDataBatch(Util.jsonObject);
     }
 
-    public void getDataBatch(JsonObject jsonObject) {
-        RetrofitClient.getCilent().create(APIServer.class).getListBatch(jsonObject).enqueue(new Callback<Batch>() {
+    private void getDataBatch(JsonObject jsonObject) {
+        RetrofitClient.getCilent().create(APIServer.class).getBatch(jsonObject).enqueue(new Callback<BatchRespone>() {
             @Override
-            public void onResponse(Call<Batch> call, Response<Batch> response) {
-                swRFragmentWithLv.setRefreshing(false);
-                if (response.body().getStatus() == 1) {
-                    batchArrayList.clear();
-                    batchArrayList.addAll(response.body().getResult());
-                    batchAdapter.notifyDataSetChanged();
-                } else {
-                    Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                }
+            public void onResponse(Call<BatchRespone> call, Response<BatchRespone> response) {
+                swipeRefreshLayout.setRefreshing(false);
+               if (response.body().getStatus()==1){
+                   arrData.clear();
+                   arrData.addAll(response.body().getResult());
+                   adapter.notifyDataSetChanged();
+               }else {
+                   Toast.makeText(getActivity(),response.body().getMessage(),Toast.LENGTH_SHORT).show();
+               }
             }
 
             @Override
-            public void onFailure(Call<Batch> call, Throwable t) {
-                swRFragmentWithLv.setRefreshing(false);
+            public void onFailure(Call<BatchRespone> call, Throwable t) {
+                swipeRefreshLayout.setRefreshing(false);
             }
         });
     }
 
     @Override
-    public void setAdapter() {
-        batchAdapter = new BatchAdapter(batchArrayList,getActivity());
-        lvFragWithLv.setAdapter(batchAdapter);
+    public void setUpAdapter() {
+        adapter=new BatchAdapter(arrData,getActivity());
+        lvFag.setAdapter(adapter);
     }
 }

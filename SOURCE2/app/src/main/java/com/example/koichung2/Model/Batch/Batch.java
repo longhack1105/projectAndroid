@@ -1,27 +1,54 @@
-package com.example.koichung2.Model.Batch;
+package com.example.koichung.Model;
 
-import java.io.Serializable;
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Batch implements Serializable {
-
+public class Batch {
     @SerializedName("$id")
     @Expose
-    private String $id;
-    @SerializedName("status")
+    public String $id;
+    @SerializedName("batchID")
     @Expose
-    private Integer status;
+    public Integer batchID;
     @SerializedName("code")
     @Expose
-    private Integer code;
-    @SerializedName("Result")
+    public String code;
+    @SerializedName("count")
     @Expose
-    private List<Result> result = null;
-    @SerializedName("message")
+    public Integer count;
+    @SerializedName("root")
     @Expose
-    private String message;
+    public String root;
+    @SerializedName("dealer")
+    @Expose
+    public String dealer;
+    @SerializedName("isShowWeb")
+    @Expose
+    public Integer isShowWeb;
+    @SerializedName("buyer")
+    @Expose
+    public String buyer;
+    @SerializedName("privateNote")
+    @Expose
+    public String privateNote;
+    @SerializedName("note")
+    @Expose
+    public String note;
+    @SerializedName("lastCount")
+    @Expose
+    public Integer lastCount;
+    @SerializedName("createDate")
+    @Expose
+    public String createDate;
+    @SerializedName("createDateV")
+    @Expose
+    public String createDateV;
+    @SerializedName("isActive")
+    @Expose
+    public Integer isActive;
+    @SerializedName("isHaveContract")
+    @Expose
+    public Integer isHaveContract;
 
     public String get$id() {
         return $id;
@@ -31,36 +58,115 @@ public class Batch implements Serializable {
         this.$id = $id;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getBatchID() {
+        return batchID;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setBatchID(Integer batchID) {
+        this.batchID = batchID;
     }
 
-    public Integer getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
-    public List<Result> getResult() {
-        return result;
+    public Integer getCount() {
+        return count;
     }
 
-    public void setResult(List<Result> result) {
-        this.result = result;
+    public void setCount(Integer count) {
+        this.count = count;
     }
 
-    public String getMessage() {
-        return message;
+    public String getRoot() {
+        return root;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setRoot(String root) {
+        this.root = root;
     }
 
+    public String getDealer() {
+        return dealer;
+    }
+
+    public void setDealer(String dealer) {
+        this.dealer = dealer;
+    }
+
+    public Integer getIsShowWeb() {
+        return isShowWeb;
+    }
+
+    public void setIsShowWeb(Integer isShowWeb) {
+        this.isShowWeb = isShowWeb;
+    }
+
+    public String getBuyer() {
+        return buyer;
+    }
+
+    public void setBuyer(String buyer) {
+        this.buyer = buyer;
+    }
+
+    public String getPrivateNote() {
+        return privateNote;
+    }
+
+    public void setPrivateNote(String privateNote) {
+        this.privateNote = privateNote;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public Integer getLastCount() {
+        return lastCount;
+    }
+
+    public void setLastCount(Integer lastCount) {
+        this.lastCount = lastCount;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getCreateDateV() {
+        return createDateV;
+    }
+
+    public void setCreateDateV(String createDateV) {
+        this.createDateV = createDateV;
+    }
+
+    public Integer getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Integer isActive) {
+        this.isActive = isActive;
+    }
+
+    public Integer getIsHaveContract() {
+        return isHaveContract;
+    }
+
+    public void setIsHaveContract(Integer isHaveContract) {
+        this.isHaveContract = isHaveContract;
+    }
 }

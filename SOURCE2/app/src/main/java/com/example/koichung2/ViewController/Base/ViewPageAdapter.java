@@ -1,17 +1,17 @@
-package com.example.koichung2.ViewController.Base;
+package com.example.koichung.ViewController.Base;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.example.koichung.ViewController.Batch.BatchFragment;
+
 import java.util.ArrayList;
 
 public class ViewPageAdapter extends FragmentStatePagerAdapter {
-
-    ArrayList<BaseFragment> mListFrament = new ArrayList<>();
-    ArrayList<String> mListTitle = new ArrayList<>();
-
+    ArrayList<BaseFragment> mListFrament=new ArrayList<>();
+    ArrayList<String> mListTitle=new ArrayList<>();
     public ViewPageAdapter(FragmentManager fm) {
         super(fm);
     }
@@ -32,6 +32,6 @@ public class ViewPageAdapter extends FragmentStatePagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return super.getPageTitle(position);
+        return mListTitle.get(position);
     }
 }
