@@ -45,11 +45,11 @@ public class LoginRespone {
         this.code = code;
     }
 
-    public User getResult() {
+    public User getUser() {
         return result;
     }
 
-    public void setResult(User result) {
+    public void setUser(User result) {
         this.result = result;
     }
 

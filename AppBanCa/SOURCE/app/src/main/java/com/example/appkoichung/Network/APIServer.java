@@ -1,7 +1,7 @@
-package com.example.koichung2.Networks;
+package com.example.appkoichung.Network;
 
-import com.example.koichung2.Model.Batch.Batch;
-import com.example.koichung2.Model.Login.LoginRespone;
+import com.example.appkoichung.Model.Batch.BatchRespone;
+import com.example.appkoichung.Model.login.LoginRespone;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;
@@ -16,11 +16,8 @@ public interface APIServer {
     @Headers("Content-Type:application/json")
     Call<LoginRespone> getUser(@Body JsonObject jsonObject);
 
-    //get list batch
+    //Batch
     @POST("api/Service/GetListBatch")
     @Headers("Content-Type:application/json")
-    Call<Batch> getListBatch(@Body JsonObject jsonObject);
-
-
-
+    Call<BatchRespone> getBatch(@Body JsonObject jsonObject);
 }

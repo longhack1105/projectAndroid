@@ -1,27 +1,25 @@
-package com.example.koichung2.Model.Batch;
+package com.example.appkoichung.Model.login;
 
-import java.io.Serializable;
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Batch implements Serializable {
+public class LoginRespone {
 
     @SerializedName("$id")
     @Expose
-    private String $id;
+    public String $id;
     @SerializedName("status")
     @Expose
-    private Integer status;
+    public Integer status;
     @SerializedName("code")
     @Expose
-    private Integer code;
+    public Integer code;
     @SerializedName("result")
     @Expose
-    private List<Result> result = null;
+    public User result;
     @SerializedName("message")
     @Expose
-    private String message;
+    public String message;
 
     public String get$id() {
         return $id;
@@ -47,11 +45,11 @@ public class Batch implements Serializable {
         this.code = code;
     }
 
-    public List<Result> getResult() {
+    public User getResult() {
         return result;
     }
 
-    public void setResult(List<Result> result) {
+    public void setResult(User result) {
         this.result = result;
     }
 
@@ -62,5 +60,4 @@ public class Batch implements Serializable {
     public void setMessage(String message) {
         this.message = message;
     }
-
 }

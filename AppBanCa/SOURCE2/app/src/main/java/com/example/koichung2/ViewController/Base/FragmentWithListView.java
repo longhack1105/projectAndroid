@@ -57,6 +57,12 @@ public abstract class FragmentWithListView extends BaseFragment {
                 getData();
             }
         });
+        swRFragmentWithLv.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getData();
+            }
+        });
         setAdapter();
     }
 

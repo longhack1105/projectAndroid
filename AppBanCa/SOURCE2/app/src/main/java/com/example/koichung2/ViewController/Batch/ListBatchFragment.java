@@ -7,8 +7,8 @@ import com.example.koichung2.Model.Batch.Batch;
 import com.example.koichung2.Model.Batch.Result;
 import com.example.koichung2.Networks.APIServer;
 import com.example.koichung2.Networks.RetrofitClient;
-import com.example.koichung2.Until.AppConfig;
-import com.example.koichung2.Until.Until;
+import com.example.koichung2.Util.AppConfig;
+import com.example.koichung2.Util.Util;
 import com.example.koichung2.ViewController.Base.FragmentWithListView;
 import com.google.gson.JsonObject;
 
@@ -34,16 +34,16 @@ public class ListBatchFragment extends FragmentWithListView {
     @Override
     public void getData() {
         super.getData();
-        Until.jsonBody();
-        Until.jsonObject.addProperty("userID", AppConfig.getUserID(getActivity()));
+        Util.jsonBody();
+        Util.jsonObject.addProperty("userID", AppConfig.getUserID(getActivity()));
         if (type == FragmentWithListView.TAB_ALL_BATCH) {
-            Until.jsonObject.addProperty("status", 0);
+            Util.jsonObject.addProperty("status", 0);
         } else if (type == FragmentWithListView.TAB_HAVE_BILL) {
-            Until.jsonObject.addProperty("status", 1);
+            Util.jsonObject.addProperty("status", 1);
         } else {
-            Until.jsonObject.addProperty("status", -1);
+            Util.jsonObject.addProperty("status", -1);
         }
-        getDataBatch(Until.jsonObject);
+        getDataBatch(Util.jsonObject);
     }
 
     public void getDataBatch(JsonObject jsonObject) {

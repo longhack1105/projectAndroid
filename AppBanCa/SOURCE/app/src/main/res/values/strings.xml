@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">AppKoiChung</string>
+    <string name="title_thong_ke">Thống Kê</string>
+    <string name="title_hop_dong">Hợp Đồng</string>
+    <string name="title_lo_hang">Lô Hàng</string>
+    <string name="title_don_hang">Đơn Hàng</string>
+    <string name="title_dai_ly">Đại Lý</string>
+    <!-- TODO: menu batch -->
+    <string name="menu_batch_all">Tất cả</string>
+    <string name="menu_batch_have_activities">Có hoạt động</string>
+    <string name="menu_batch_no_activities">Không hoạt động</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

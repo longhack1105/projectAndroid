@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_thong_ke"
+        android:icon="@mipmap/ic_summary2x"
+        android:title="@string/title_thong_ke" />
+
+    <item
+        android:id="@+id/navigation_hop_dong"
+        android:icon="@mipmap/ic_contract2x"
+        android:title="@string/title_hop_dong" />
+
+    <item
+        android:id="@+id/navigation_lo_hang"
+        android:icon="@mipmap/ic_batch2x"
+        android:title="@string/title_lo_hang" />
+    <item
+        android:id="@+id/navigation_don_hang"
+        android:icon="@mipmap/ic_order2x"
+        android:title="@string/title_don_hang" />
+    <item
+        android:id="@+id/navigation_dai_ly"
+        android:icon="@mipmap/ic_agency2x"
+        android:title="@string/title_dai_ly" />
+
+</menu>

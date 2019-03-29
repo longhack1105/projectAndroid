@@ -1,11 +1,11 @@
-package com.example.koichung2.Model.Batch;
+package com.example.appkoichung.Model.Batch;
 
-import java.io.Serializable;
+
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Batch implements Serializable {
+public class BatchRespone {
 
     @SerializedName("$id")
     @Expose
@@ -18,7 +18,7 @@ public class Batch implements Serializable {
     private Integer code;
     @SerializedName("result")
     @Expose
-    private List<Result> result = null;
+    private List<Batch> result = null;
     @SerializedName("message")
     @Expose
     private String message;
@@ -47,11 +47,11 @@ public class Batch implements Serializable {
         this.code = code;
     }
 
-    public List<Result> getResult() {
+    public List<Batch> getResult() {
         return result;
     }
 
-    public void setResult(List<Result> result) {
+    public void setResult(List<Batch> result) {
         this.result = result;
     }
 

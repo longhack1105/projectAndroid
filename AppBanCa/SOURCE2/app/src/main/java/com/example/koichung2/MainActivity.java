@@ -15,10 +15,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.koichung2.Until.AppConfig;
+import com.example.koichung2.Util.AppConfig;
 import com.example.koichung2.ViewController.Base.BaseFragment;
 import com.example.koichung2.ViewController.Batch.BatchFragment;
-import com.example.koichung2.ViewController.Batch.ListBatchFragment;
 import com.example.koichung2.ViewController.Login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
